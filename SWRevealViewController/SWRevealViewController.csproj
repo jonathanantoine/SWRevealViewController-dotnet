@@ -8,7 +8,7 @@
 
         <!-- Nuget package -->
         <PackageId>com.jonathanantoine.SWRevealViewController</PackageId>
-        <Version>1.0.0.0</Version>
+        <Version>1.0.0.1</Version>
         <Authors>Jonathan Antoine</Authors>
         <Title>SWRevealViewController for dotnet</Title>
         <PackageProjectUrl>https://github.com/jonathanantoine/SWRevealViewController-dotnet</PackageProjectUrl>
