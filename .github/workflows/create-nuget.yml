@@ -1,0 +1,70 @@
+name: Build nuget package
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  build:
+    runs-on: macos-latest
+    env:
+      SDK: 17.5
+      SRC_FOLDER: .
+#      PROJ_NAME: SWRevealViewController.xcodeproj
+      
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        
+      - name: Install .NET 9
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: '9.x'
+#        
+#        
+#      - name: Build MBProgressHUD iphonesimulator Framework
+#        run: |
+#          xcodebuild -project ${{ env.SRC_FOLDER }}/${{ env.PROJ_NAME }} \
+#            -target "MBProgressHUD Framework" \
+#            -sdk iphonesimulator${{ env.SDK }} \
+#
+#      - name: Build MBProgressHUD iphonesimulator Framework
+#        run: |
+#          xcodebuild -project ${{ env.SRC_FOLDER }}/${{ env.PROJ_NAME }} \
+#            -target "MBProgressHUD Framework" \
+#            -sdk iphoneos${{ env.SDK }} \
+#
+#      - name: Build xcframework
+#        run: |
+#          xcodebuild -create-xcframework \
+#          -framework "${{ env.SRC_FOLDER }}/build/Release-iphonesimulator/MBProgressHUD.framework" \
+#          -framework "${{ env.SRC_FOLDER }}/build/Release-iphoneos/MBProgressHUD.framework" \
+#          -output ./dotnet-binding/MBProgressHUD.xcframework
+#
+#      - name: Upload .xcframework as artifact
+#        uses: actions/upload-artifact@v4.6.2
+#        with:
+#          name: xcframework
+#          compression-level: '1'
+#          path: ./dotnet-binding/SWRevealViewController.xcframework
+#          
+      - name: Restore workload
+        working-directory: ./SWRevealViewController
+        run: dotnet workload restore
+
+      - name: Build .NET binding project
+        working-directory: ./SWRevealViewController
+        run: dotnet build -c Release SWRevealViewController.csproj
+
+      - name: Pack NuGet
+        working-directory: ./SWRevealViewController
+        run: dotnet pack -c Release SWRevealViewController.csproj
+
+      - name: Upload .nupkg as artifact
+        uses: actions/upload-artifact@v4.6.2
+        with:
+          name: SWRevealViewController-nuget-package
+          compression-level: '0'
+          path: SWRevealViewController/bin/Release/*.nupkg
