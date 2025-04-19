@@ -5,7 +5,7 @@ using ObjCRuntime;
 using System.Drawing;
 using UIKit;
 
-namespace SWRevealViewController {
+namespace SWRevealViewControllerMaui {
     
   [BaseType (typeof (UIViewController))]
 	public partial interface SWRevealViewController
@@ -114,13 +114,6 @@ namespace SWRevealViewController {
 
 		[Export ("delegate", ArgumentSemantic.Assign)]
 		SWRevealViewControllerDelegate Delegate { get; set; }
-        
-        [BaseType (typeof (UIStoryboardSegue))]
-        public partial interface SWRevealViewControllerSegueSetController
-        {
-            [Export ("performBlock", ArgumentSemantic.Retain)]
-            SegueCallback PerformDelegate { get; set; }
-        }
 	}
 
 	[Model, BaseType (typeof (NSObject))]
@@ -173,7 +166,13 @@ namespace SWRevealViewController {
 		SWRevealViewController RevealViewController ();
 	}
 
-	public delegate void SegueCallback(SWRevealViewController.SWRevealViewControllerSegueSetController segue, UIViewController svc, UIViewController dvc);
+	public delegate void SegueCallback(SWRevealViewControllerSegueSetController segue, UIViewController svc, UIViewController dvc);
 
+	[BaseType (typeof (UIStoryboardSegue))]
+	public partial interface SWRevealViewControllerSegueSetController
+	{
+		[Export ("performBlock", ArgumentSemantic.Retain)]
+		SegueCallback PerformDelegate { get; set; }
+	}
 
 }
