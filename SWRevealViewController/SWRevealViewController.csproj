@@ -26,7 +26,7 @@
     </ItemGroup>
     <ItemGroup>
         <NativeReference Include="SWRevealViewControllerSDK.a">
-            <Kind>Library</Kind>
+            <Kind>Static</Kind>
             <Frameworks>Foundation</Frameworks>
             <SmartLink>True</SmartLink>
             <ForceLoad>True</ForceLoad>
