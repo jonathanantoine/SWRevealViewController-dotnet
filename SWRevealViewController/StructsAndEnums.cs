@@ -6,5 +6,19 @@ using UIKit;
 
 namespace SWRevealViewController {
     
-  
+    public enum FrontViewPosition {
+        LeftSideMostRemoved,
+        LeftSideMost,
+        LeftSide,
+        Left,
+        Right,
+        RightMost,
+        RightMostRemoved
+    }
+
+    public enum SWRevealControllerOperation {
+        ReplaceRearController,
+        ReplaceFrontController,
+        ReplaceRightController
+    }
 }
