@@ -19,15 +19,18 @@
     </PropertyGroup>
 
     <ItemGroup>
-        <ObjcBindingApiDefinition Include="ApiDefinition.cs" />
-        <ObjcBindingCoreSource Include="StructsAndEnums.cs" />
-        <None Include="..\.github\workflows\create-nuget.yml" />
+        <ObjcBindingApiDefinition Include="ApiDefinition.cs"/>
+        <ObjcBindingCoreSource Include="StructsAndEnums.cs"/>
+        <None Include="..\.github\workflows\create-nuget.yml"/>
         <None Include="..\README.md" Pack="true" PackagePath="\"/>
     </ItemGroup>
     <ItemGroup>
         <NativeReference Include="SWRevealViewControllerSDK.a">
-            <Kind>Framework</Kind>
+            <Kind>Library</Kind>
             <Frameworks>Foundation</Frameworks>
+            <SmartLink>True</SmartLink>
+            <ForceLoad>True</ForceLoad>
+            <LinkerFlags>-ObjC -fobjc-arc</LinkerFlags>
         </NativeReference>
     </ItemGroup>
 
