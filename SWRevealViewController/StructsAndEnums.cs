@@ -4,7 +4,7 @@ using Foundation;
 using ObjCRuntime;
 using UIKit;
 
-namespace SWRevealViewController-dotnet {
+namespace SWRevealViewController {
     
     public enum FrontViewPosition {
         LeftSideMostRemoved,

@@ -5,9 +5,9 @@ using ObjCRuntime;
 using System.Drawing;
 using UIKit;
 
-namespace SWRevealViewController-dotnet {
+namespace SWRevealViewController {
     
-    [BaseType (typeof (UIViewController))]
+  [BaseType (typeof (UIViewController))]
 	public partial interface SWRevealViewController
 	{
 		[Export ("initWithRearViewController:frontViewController:")]
