@@ -12,7 +12,7 @@ jobs:
     env:
       SDK: 17.5
       SRC_FOLDER: .
-      PROJ_NAME: SWRevealViewController.xcodeproj
+#      PROJ_NAME: SWRevealViewController.xcodeproj
       
     steps:
       - name: Checkout
