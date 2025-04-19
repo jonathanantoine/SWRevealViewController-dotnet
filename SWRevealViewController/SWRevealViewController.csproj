@@ -1,0 +1,34 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+    <PropertyGroup>
+        <TargetFramework>net9.0-ios</TargetFramework>
+        <RootNamespace>SWRevealViewController</RootNamespace>
+        <Nullable>enable</Nullable>
+        <ImplicitUsings>true</ImplicitUsings>
+        <IsBindingProject>true</IsBindingProject>
+
+        <!-- Nuget package -->
+        <PackageId>com.jonathanantoine.SWRevealViewController</PackageId>
+        <Version>1.0.0.0</Version>
+        <Authors>Jonathan Antoine</Authors>
+        <Title>SWRevealViewController for dotnet</Title>
+        <PackageProjectUrl>https://github.com/jonathanantoine/SWRevealViewController-dotnet</PackageProjectUrl>
+        <Description>SWRevealViewController binding for Net 9.0 iOS</Description>
+        <PackageReleaseNotes>SWRevealViewController binding for Net 9.0 iOS</PackageReleaseNotes>
+        <PackageTags>maui ios SWRevealViewController dotnet</PackageTags>
+        <PackageReadmeFile>README.md</PackageReadmeFile>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <ObjcBindingApiDefinition Include="ApiDefinition.cs" />
+        <ObjcBindingCoreSource Include="StructsAndEnums.cs" />
+        <None Include="..\.github\workflows\create-nuget.yml" />
+        <None Include="..\README.md" Pack="true" PackagePath="\"/>
+    </ItemGroup>
+    <ItemGroup>
+        <NativeReference Include="SWRevealViewControllerSDK.a">
+            <Kind>Framework</Kind>
+            <Frameworks>Foundation</Frameworks>
+        </NativeReference>
+    </ItemGroup>
+
+</Project>
