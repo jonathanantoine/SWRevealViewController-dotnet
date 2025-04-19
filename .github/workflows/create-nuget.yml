@@ -50,7 +50,7 @@ jobs:
 #          compression-level: '1'
 #          path: ./dotnet-binding/SWRevealViewController.xcframework
 #          
-      - name: restore workload
+      - name: Restore workload
         working-directory: ./SWRevealViewController
         run: dotnet workload restore
 
