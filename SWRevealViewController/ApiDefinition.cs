@@ -5,7 +5,7 @@ using ObjCRuntime;
 using System.Drawing;
 using UIKit;
 
-namespace SWRevealViewController {
+namespace SWRevealViewController-dotnet {
     
     [BaseType (typeof (UIViewController))]
 	public partial interface SWRevealViewController
