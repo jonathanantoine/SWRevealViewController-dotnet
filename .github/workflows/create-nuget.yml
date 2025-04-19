@@ -48,7 +48,7 @@ jobs:
 #        with:
 #          name: xcframework
 #          compression-level: '1'
-#          path: ./dotnet-binding/MBProgressHUD.xcframework
+#          path: ./dotnet-binding/SWRevealViewController.xcframework
 #          
       - name: restore workload
         working-directory: ./SWRevealViewController
@@ -56,7 +56,7 @@ jobs:
 
       - name: Build .NET binding project
         working-directory: ./SWRevealViewController
-        run: dotnet build -c Release MBProgressHUD.csproj
+        run: dotnet build -c Release SWRevealViewController.csproj
 
       - name: Pack NuGet
         working-directory: ./SWRevealViewController
