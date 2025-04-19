@@ -19,9 +19,18 @@
 
 
 ## Usage
+Follow [this blog post to reference](https://medium.com/@jonathanantoine/how-to-add-a-local-nuget-nupkg-to-your-net-project-0254d222e2a6) it in your project if not yet published on Nuget.
+
 
 ```csharp
+using SWRevealViewControllerMaui;
 
+var pageController = new MyPageController();
+pageController.ViewControllerSelected += pageControllerController_ViewControllerSelected;
+
+var menuController = new MenuViewController();
+
+var swRevealViewController = new SWRevealViewController(menuController, pageController);
 ```
 
 ## Contribution
